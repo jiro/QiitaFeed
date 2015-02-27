@@ -14,9 +14,11 @@ class FeedViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Item.items { (items) in
-            self.items = items
-            self.tableView.reloadData()
+        Item.tagItems("Swift").subscribeNext { (object) in
+            if let items = object as? [Item] {
+                self.items = items
+                self.tableView.reloadData()
+            }
         }
     }
 

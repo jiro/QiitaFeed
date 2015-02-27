@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftyJSON
+import ReactiveCocoa
+import Moya
 
 class Item: NSObject {
     let title: String
@@ -22,17 +24,24 @@ class Item: NSObject {
         return Item(title: title)
     }
 
-    class func items(completion: ([Item]) -> ()) {
-        QiitaProvider.request(.TagItems("swift")) { (data, status, response, error) in
-            var items = [Item]()
+    class func tagItems(tagID: String) -> RACSignal {
+        return QiitaProvider.request(.TagItems(tagID)).filterSuccessfulStatusCodes().mapJSON().mapToItems()
+    }
+}
 
-            if let data = data {
-                let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil)
-                if let json = json as? [[String: AnyObject]] {
-                    items = json.map({ return self.fromJSON($0) })
-                }
+extension RACSignal {
+    private func mapToItems() -> RACSignal {
+        return tryMap { (object, error) -> AnyObject! in
+            if let dicts = object as? [[String: AnyObject]] {
+                let items: [Item] =  dicts.map({ return Item.fromJSON($0) })
+                return items
             }
-            completion(items)
+
+            if error != nil {
+                error.memory = NSError(domain: MoyaErrorDomain, code: MoyaErrorCode.Data.rawValue, userInfo: ["data": object])
+            }
+
+            return nil
         }
     }
 }

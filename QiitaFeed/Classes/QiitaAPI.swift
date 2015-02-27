@@ -38,7 +38,7 @@ let endpointsClosure = { (target: QiitaAPI, method: Moya.Method, parameters: [St
     return Endpoint<QiitaAPI>(URL: url(target), sampleResponse: .Success(200, target.sampleData), method: method, parameters: parameters)
 }
 
-let QiitaProvider = MoyaProvider(endpointsClosure: endpointsClosure)
+let QiitaProvider = ReactiveMoyaProvider(endpointsClosure: endpointsClosure)
 
 // MARK: - Provider support
 
