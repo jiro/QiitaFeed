@@ -25,12 +25,12 @@ class Item: NSObject {
     }
 
     class func tagItems(tagID: String) -> RACSignal {
-        return QiitaProvider.request(.TagItems(tagID)).filterSuccessfulStatusCodes().mapJSON().mapToItems()
+        return QiitaProvider.sharedProvider.request(.TagItems(tagID)).filterSuccessfulStatusCodes().mapJSON().mapToItems()
     }
 }
 
-extension RACSignal {
-    private func mapToItems() -> RACSignal {
+private extension RACSignal {
+    func mapToItems() -> RACSignal {
         return tryMap { (object, error) -> AnyObject! in
             if let dicts = object as? [[String: AnyObject]] {
                 let items: [Item] =  dicts.map({ return Item.fromJSON($0) })

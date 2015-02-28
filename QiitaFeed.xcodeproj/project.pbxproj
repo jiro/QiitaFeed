@@ -14,6 +14,7 @@
 		4B71D8DD1A9F6B1E006D4F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B71D8DA1A9F6B1E006D4F18 /* Main.storyboard */; };
 		4B71D8E01A9F6B34006D4F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B71D8DE1A9F6B34006D4F18 /* AppDelegate.swift */; };
 		4B71D8E31A9F6C54006D4F18 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B71D8E21A9F6C54006D4F18 /* FeedViewController.swift */; };
+		4B77FE6C1AA134BD004838F2 /* Items.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B77FE6B1AA134BD004838F2 /* Items.json */; };
 		4BFB2BCB1A9F704700D3F425 /* QiitaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB2BCA1A9F704700D3F425 /* QiitaAPI.swift */; };
 		4BFB2BCD1A9F829000D3F425 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB2BCC1A9F829000D3F425 /* Item.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		4B71D8DB1A9F6B1E006D4F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B71D8DE1A9F6B34006D4F18 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B71D8E21A9F6C54006D4F18 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		4B77FE6B1AA134BD004838F2 /* Items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Items.json; sourceTree = "<group>"; };
 		4BFB2BCA1A9F704700D3F425 /* QiitaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiitaAPI.swift; sourceTree = "<group>"; };
 		4BFB2BCC1A9F829000D3F425 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7AEC0D17F5A5A9697EDEF946 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 			children = (
 				4B71D8DA1A9F6B1E006D4F18 /* Main.storyboard */,
 				4B71D8D51A9F6B0B006D4F18 /* Images.xcassets */,
+				4B77FE6B1AA134BD004838F2 /* Items.json */,
 				4B71D8D81A9F6B1E006D4F18 /* LaunchScreen.xib */,
 			);
 			path = Resources;
@@ -244,6 +247,7 @@
 				4B71D8DD1A9F6B1E006D4F18 /* Main.storyboard in Resources */,
 				4B71D8DC1A9F6B1E006D4F18 /* LaunchScreen.xib in Resources */,
 				4B71D8D71A9F6B0B006D4F18 /* Images.xcassets in Resources */,
+				4B77FE6C1AA134BD004838F2 /* Items.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
