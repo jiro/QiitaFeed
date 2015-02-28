@@ -24,6 +24,10 @@ class Item: NSObject {
         return Item(title: title)
     }
 
+    class func Items() -> RACSignal {
+        return QiitaProvider.sharedProvider.request(.Items).filterSuccessfulStatusCodes().mapJSON().mapToItems()
+    }
+
     class func tagItems(tagID: String) -> RACSignal {
         return QiitaProvider.sharedProvider.request(.TagItems(tagID)).filterSuccessfulStatusCodes().mapJSON().mapToItems()
     }

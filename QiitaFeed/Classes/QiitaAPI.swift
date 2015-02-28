@@ -10,12 +10,15 @@ import Foundation
 import Moya
 
 enum QiitaAPI {
+    case Items
     case TagItems(String)
 }
 
 extension QiitaAPI : MoyaPath {
     var path: String {
         switch self {
+        case .Items:
+            return "/api/v2/items"
         case .TagItems(let tagID):
             return "/api/v2/tags/\(tagID)/items"
         }
@@ -26,7 +29,7 @@ extension QiitaAPI : MoyaTarget {
     var baseURL: NSURL { return NSURL(string: "https://qiita.com")! }
     var sampleData: NSData {
         switch self {
-        case .TagItems:
+        case .Items, .TagItems:
             return stubbedResponse("Items")
         }
     }
